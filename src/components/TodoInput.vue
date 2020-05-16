@@ -16,9 +16,11 @@ export default {
   },
   methods: {
     addTodo() {
+      console.log('Todo input >> addTodo()');
       if(this.newTodoItem !==''){
       console.log(this.newTodoItem)
-      localStorage.setItem(this.newTodoItem, this.newTodoItem)
+        var value = this.newTodoItem && this.newTodoItem.trim();
+        this.$emit('addTodoparent',value)//value 값을 상위로 전달
       this.clearInput();
       }
     },
